@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Rescue Buddies Acceptance
+Implementation-Version: 80b498030d
+Implementation-Vendor-Id: net.sghill.rescuebuddies
+Build-Jdk: 1.7.0_65
+Built-By: Steve
+Created-By: Apache Maven 3.2.2
+Main-Class: net.sghill.rescuebuddies.acceptance.Runner
+Archiver-Version: Plexus Archiver
+
