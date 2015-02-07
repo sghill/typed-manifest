@@ -8,19 +8,28 @@ import java.util.jar.Manifest;
 
 public class DefaultingManifestParser implements ManifestParser {
     private static final TypedManifest DEFAULT_MANIFEST = new TypedManifest("");
+    private final TypedManifest defaultManifest;
+
+    public DefaultingManifestParser(TypedManifest defaultManifest) {
+        this.defaultManifest = defaultManifest;
+    }
+
+    public DefaultingManifestParser() {
+        this(DEFAULT_MANIFEST);
+    }
 
     @Override
     public TypedManifest parseManifestFromClasspath(String path, Class<?> clazz) {
         try(InputStream is = clazz.getClassLoader().getResourceAsStream(path)) {
             if(is == null) {
-                return DEFAULT_MANIFEST;
+                return defaultManifest;
             }
             Manifest manifest = new Manifest(is);
             String versionValue = manifest.getMainAttributes().getValue(Attributes.Name.IMPLEMENTATION_VERSION);
-            String implementationVersion = versionValue != null ? versionValue : "";
+            String implementationVersion = versionValue != null ? versionValue : defaultManifest.getImplementationVersion();
             return new TypedManifest(implementationVersion);
         } catch (IOException e) {
-            return DEFAULT_MANIFEST;
+            return defaultManifest;
         }
     }
 }
