@@ -13,7 +13,7 @@ public class Main {
 
     public void run(String[] args) {
         ManifestParser manifestParser = new DefaultingManifestParser(new TypedManifest(DEFAULT_VERSION));
-        TypedManifest typedManifest = manifestParser.parseManifestFromClasspath("META-INF/MANIFEST.MF", Main.class);
+        TypedManifest typedManifest = manifestParser.parseManifestFromClasspath();
         System.out.println("version: " + typedManifest.getImplementationVersion());
     }
 }

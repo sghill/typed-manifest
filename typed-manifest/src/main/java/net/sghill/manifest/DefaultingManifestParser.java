@@ -7,6 +7,7 @@ import java.util.jar.Attributes;
 import java.util.jar.Manifest;
 
 public class DefaultingManifestParser implements ManifestParser {
+    private static final String DEFAULT_MANIFEST_PATH = "META-INF/MANIFEST.MF";
     private static final TypedManifest DEFAULT_MANIFEST = new TypedManifest("");
     private final TypedManifest defaultManifest;
 
@@ -16,6 +17,11 @@ public class DefaultingManifestParser implements ManifestParser {
 
     public DefaultingManifestParser() {
         this(DEFAULT_MANIFEST);
+    }
+
+    @Override
+    public TypedManifest parseManifestFromClasspath() {
+        return parseManifestFromClasspath(DEFAULT_MANIFEST_PATH, DefaultingManifestParser.class);
     }
 
     @Override
