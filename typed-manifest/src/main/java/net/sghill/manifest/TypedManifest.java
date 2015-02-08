@@ -1,12 +1,26 @@
 package net.sghill.manifest;
 
+/**
+ * Immutable, typed representation of the standard Java manifest.
+ */
 public class TypedManifest {
     private final String implementationVersion;
 
+    /**
+     * Returns a {@code TypedManifest} with an the given
+     * {@code implementationVersion}.
+     *
+     * @param implementationVersion     Implementation-Version header value
+     */
     public TypedManifest(String implementationVersion) {
         this.implementationVersion = implementationVersion;
     }
 
+    /**
+     * Manifest's {@code Implementation-Version} header.
+     *
+     * @return  the "Implementation-Version" header of the manifest
+     */
     public String getImplementationVersion() {
         return implementationVersion;
     }
