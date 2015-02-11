@@ -3,18 +3,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>net.sghill.manifest</groupId>
-        <artifactId>parent</artifactId>
+        <groupId>net.sghill</groupId>
+        <artifactId>typed-manifest-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
 
-    <artifactId>samples</artifactId>
+    <artifactId>typed-manifest-samples</artifactId>
     <name>Typed Manifest Samples</name>
 
     <dependencies>
         <dependency>
-            <groupId>net.sghill.manifest</groupId>
+            <groupId>net.sghill</groupId>
             <artifactId>typed-manifest</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
